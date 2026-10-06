@@ -14,7 +14,14 @@
         "configDir": "apps/docs/.storybook",
         "tsConfig": "apps/docs/.storybook/tsconfig.json",
         "styles": ["libs/tokens/src/fonts.css", "apps/docs/src/styles.css"],
-        "compodoc": false
+        "compodoc": false,
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/docs/src/assets",
+            "output": "assets"
+          }
+        ]
       }
     },
     "build-storybook": {
@@ -28,7 +35,14 @@
         "tsConfig": "apps/docs/.storybook/tsconfig.json",
         "styles": ["libs/tokens/src/fonts.css", "apps/docs/src/styles.css"],
         "compodoc": false,
-        "quiet": true
+        "quiet": true,
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/docs/src/assets",
+            "output": "assets"
+          }
+        ]
       }
     },
     "typecheck": {
