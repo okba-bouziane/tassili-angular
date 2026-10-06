@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { customProperties, Declarations, readSource, ruleBody } from './css';
-import { contrastRatio, isInSrgbGamut, Oklch, parseOklch } from './oklch';
+import { customProperties, type Declarations, readSource, ruleBody } from './css';
+import { contrastRatio, isInSrgbGamut, type Oklch, parseOklch } from './oklch';
 
 const tokensCss = readSource('tokens.css');
 const light = customProperties(ruleBody(tokensCss, ":root,\n[data-theme='light']"));

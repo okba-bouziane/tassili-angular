@@ -2,14 +2,18 @@
 
 Living plan for the UI library + starter template monorepo. Update the checklist as work lands.
 
-**Status:** Phase 0 — waiting for decisions (see "Open decisions").
+**Status:** Phase 1 complete (2026-10-06). Next: Phase 2, starting with Button.
 
-## Open decisions
+## Decisions
 
-- [ ] npm scope (`@<scope>/ui`, `@<scope>/tokens`)
-- [ ] Brand name
-- [ ] Visual direction (A / B / C, see Phase 0 summary)
-- [ ] Stack deviations (see "Proposed deviations"): TypeScript 6.0 pin, Angular CLI Vitest builder, `@lucide/angular`, Chart.js, `pnpm licenses` check
+- [x] Brand **Tassili**, npm scope **`@tassili`** (`@okba` and `@oka` were taken), component prefix **`tsl`**
+- [x] Visual direction A, refined to avoid the cream/serif/terracotta cliché: Tuareg indigo primary, red ochre brand accent, sandstone neutrals, "desert night" dark theme; Bricolage Grotesque + Instrument Sans + JetBrains Mono, Noto Sans/Kufi Arabic fallbacks
+- [x] All six stack deviations approved (below)
+
+## Open questions for the owner
+
+- [ ] Create the `tassili` npm organization (needed before the first publish) and add an `NPM_TOKEN` secret to the GitHub repo
+- [ ] GitHub repository URL (for `repository` fields and GitHub-linked changelogs)
 
 ## Verified environment (2026-10-06)
 
@@ -44,7 +48,7 @@ Living plan for the UI library + starter template monorepo. Update the checklist
 | chart.js                                    | 4.5.1               | MIT        | Proposed chart lib                                                                        |
 | @fontsource-variable/*                      | 5.3.x               | OFL-1.1    | Self-hosted fonts                                                                         |
 
-## Proposed deviations (need approval)
+## Approved deviations
 
 1. **TypeScript 6.0.x pinned** instead of latest (7.0.2): this is a hard Angular 22 constraint.
 2. **Unit tests via Angular CLI `@angular/build:unit-test` (Vitest 5)** instead of `@analogjs/vitest-angular` or `@nx/vitest` (which caps at Vitest 4). It is first-party with fewer moving parts. Testing Library stays.
@@ -61,27 +65,28 @@ Living plan for the UI library + starter template monorepo. Update the checklist
 - [x] Propose 3 visual directions
 - [x] Write PLAN.md
 - [x] Write CLAUDE.md
-- [ ] Decisions: scope, brand, direction, deviations
+- [x] Decisions: scope, brand, direction, deviations
 
 ### Phase 1: Foundation
 
-- [ ] `git init`, Nx workspace (pnpm, Angular preset, no default app)
-- [ ] TypeScript strict, ESLint (flat config, angular-eslint, no `any`), Prettier, EditorConfig
-- [ ] Commitlint/conventional commits (lightweight hook)
-- [ ] `libs/tokens`: primitive + semantic tokens (color OKLCH, type, spacing, radius, shadow, motion, z-index) as CSS variables
-- [ ] Tailwind v4 theme preset (`@theme inline` mapping to tokens)
-- [ ] Light + dark themes; extra themes = a CSS file that overrides variables only (`[data-theme="x"]`)
-- [ ] RTL via logical properties (lint rule / review checklist), `dir` support verified in Storybook
-- [ ] `prefers-reduced-motion` handling in motion tokens
-- [ ] Automated contrast check of token pairs (WCAG 2.2 AA) as a unit test
-- [ ] `libs/ui` publishable lib skeleton (ng-packagr, secondary entry points, `cn()` helper)
-- [ ] `apps/docs` Storybook (theme + direction toolbar, a11y addon)
-- [ ] `apps/template` skeleton (zoneless, lazy routes)
-- [ ] Unit test setup (Vitest + Testing Library), Playwright setup
-- [ ] License-check script + THIRD_PARTY_LICENSES.md generation, MIT LICENSE
-- [ ] Changesets
-- [ ] GitHub Actions CI: lint, typecheck, test, build, license check, Storybook build
-- [ ] Phase summary
+- [x] `git init`, Nx 23 integrated workspace (pnpm, Angular 22, no Nx Cloud, no AI-agent boilerplate)
+- [x] TypeScript strict, ESLint 10 flat config (no `any`, OnPush, signals, template a11y, described disables), Prettier, EditorConfig
+- [x] Commitlint + commit-msg hook (simple-git-hooks)
+- [x] `libs/tokens`: color (OKLCH), type, spacing unit, control heights, radius, shadow, motion, z-index, layout tokens as CSS variables
+- [x] Tailwind v4 preset: default palettes removed, token-backed utilities, custom `dark` variant, `duration-*`, `z-*`, `h-control-*`, `focus-ring`
+- [x] Light + dark themes, `prefers-color-scheme` fallback, extra themes by variable overrides (`themes/oasis.css` example)
+- [x] RTL: logical utilities enforced by `pnpm lint:styles`; Arabic font fallbacks; direction toolbar in Storybook
+- [x] `prefers-reduced-motion`: duration tokens zeroed + global animation guard
+- [x] Token tests: WCAG 2.2 AA contrast (96 checks), sRGB gamut, dark/system parity, Tailwind mapping completeness
+- [x] `libs/ui` publishable skeleton: ng-packagr, secondary entry points (`core`, `theme`), `cn()`, `styles.css` export
+- [x] `TslTheme` service (`@tassili/ui/theme`): system/explicit themes, persistence, pre-paint bootstrap script
+- [x] `apps/docs` Storybook 10: theme + direction toolbars, a11y addon (errors on violations), foundation pages (colors, typography, theming/RTL)
+- [x] `apps/template` skeleton: zoneless, lazy routes, theme wired
+- [x] Unit tests (Vitest 5 via Angular builder, Testing Library, axe-core) and Playwright (prod build, desktop + 360px, axe WCAG 2.2 AA, no horizontal scroll)
+- [x] License policy script + THIRD_PARTY_LICENSES.md, MIT LICENSE
+- [x] Changesets (fixed versioning for ui + tokens, publish from `dist`)
+- [x] GitHub Actions: CI (format, license, lint, typecheck, test, build, pack dry run, Storybook) + e2e job + release workflow
+- [x] Phase summary
 
 ### Phase 2: Components
 

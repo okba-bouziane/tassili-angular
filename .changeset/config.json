@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@4.0.1/schema.json",
+  "baseBranch": "main",
+  "access": "public",
+  "ignore": [],
+  "fixed": [["@tassili/ui", "@tassili/tokens"]],
+  "linked": [],
+  "format": "prettier",
+  "updateInternalDependencies": "patch",
+  "commit": false,
+  "changelog": "@changesets/cli/changelog",
+  "changedFilePatterns": [
+    "src/**",
+    "**/src/**",
+    "*.css",
+    "package.json",
+    "ng-package.json",
+    "README.md"
+  ],
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "onlyUpdatePeerDependentsWhenOutOfRange": true
+  }
+}
