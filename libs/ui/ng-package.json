@@ -4,13 +4,6 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "assets": ["styles.css", "README.md"],
-  "allowedNonPeerDependencies": [
-    "@lucide/angular",
-    "@spartan-ng/brain",
-    "class-variance-authority",
-    "clsx",
-    "tailwind-merge",
-    "tw-animate-css"
-  ]
+  "assets": ["styles.css", "README.md", "LICENSE"],
+  "allowedNonPeerDependencies": ["clsx", "tailwind-merge", "tw-animate-css"]
 }

@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@tassili/tokens/fonts.css';
 @import '@tassili/tokens/preset.css';
+@import '@tassili/tokens/themes/oasis.css';
 
 @import '@tassili/ui/styles.css';
