@@ -26,6 +26,7 @@
       "@tassili/ui/button": ["./libs/ui/button/src/index.ts"],
       "@tassili/ui/checkbox": ["./libs/ui/checkbox/src/index.ts"],
       "@tassili/ui/combobox": ["./libs/ui/combobox/src/index.ts"],
+      "@tassili/ui/command": ["./libs/ui/command/src/index.ts"],
       "@tassili/ui/context-menu": ["./libs/ui/context-menu/src/index.ts"],
       "@tassili/ui/core": ["./libs/ui/core/src/index.ts"],
       "@tassili/ui/dialog": ["./libs/ui/dialog/src/index.ts"],
