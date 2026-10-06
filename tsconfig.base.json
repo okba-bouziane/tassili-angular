@@ -31,6 +31,7 @@
       "@tassili/ui/icon": ["./libs/ui/icon/src/index.ts"],
       "@tassili/ui/input": ["./libs/ui/input/src/index.ts"],
       "@tassili/ui/label": ["./libs/ui/label/src/index.ts"],
+      "@tassili/ui/popover": ["./libs/ui/popover/src/index.ts"],
       "@tassili/ui/radio-group": ["./libs/ui/radio-group/src/index.ts"],
       "@tassili/ui/select": ["./libs/ui/select/src/index.ts"],
       "@tassili/ui/separator": ["./libs/ui/separator/src/index.ts"],
@@ -40,7 +41,8 @@
       "@tassili/ui/spinner": ["./libs/ui/spinner/src/index.ts"],
       "@tassili/ui/switch": ["./libs/ui/switch/src/index.ts"],
       "@tassili/ui/textarea": ["./libs/ui/textarea/src/index.ts"],
-      "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"]
+      "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"],
+      "@tassili/ui/tooltip": ["./libs/ui/tooltip/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
