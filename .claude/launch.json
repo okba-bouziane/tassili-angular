@@ -6,6 +6,12 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["nx", "serve", "template", "--port", "4200"],
       "port": 4200
+    },
+    {
+      "name": "docs-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "6007", "-d", "dist/storybook/docs"],
+      "port": 6007
     }
   ]
 }

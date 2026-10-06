@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Colors" />
+
+export const Swatch = ({ name, on }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+    <div
+      style={{
+        height: 64,
+        borderRadius: 'var(--tsl-radius-lg)',
+        background: `var(--tsl-color-${name})`,
+        color: on ? `var(--tsl-color-${on})` : 'transparent',
+        border: '1px solid var(--tsl-color-border)',
+        display: 'flex',
+        alignItems: 'end',
+        padding: 8,
+        fontSize: 13,
+        fontWeight: 500,
+      }}
+    >
+      Aa
+    </div>
+    <code style={{ fontSize: 12 }}>{name}</code>
+  </div>
+);
+
+export const Grid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+      gap: 16,
+      margin: '16px 0 32px',
+    }}
+  >
+    {children}
+  </div>
+);
+
+# Colors
+
+Colors are OKLCH tokens exposed as CSS variables (`--tsl-color-*`) and Tailwind utilities (`bg-primary`, `text-muted-foreground`). Tailwind's default palette is removed, so only these exist. Every foreground/background pair is checked against WCAG 2.2 AA in `libs/tokens/test/tokens.spec.ts`.
+
+Switch the theme in the toolbar to compare light, dark and oasis.
+
+## Surfaces
+
+<Grid>
+  <Swatch name="background" on="foreground" />
+  <Swatch name="card" on="card-foreground" />
+  <Swatch name="popover" on="popover-foreground" />
+  <Swatch name="muted" on="muted-foreground" />
+  <Swatch name="accent" on="accent-foreground" />
+  <Swatch name="sidebar" on="sidebar-foreground" />
+</Grid>
+
+## Actions
+
+`primary` is Tuareg indigo, the working color for actions and focus. `brand` is red ochre: use it for the brand mark and rare highlights, not for everyday buttons.
+
+<Grid>
+  <Swatch name="primary" on="primary-foreground" />
+  <Swatch name="primary-hover" on="primary-foreground" />
+  <Swatch name="secondary" on="secondary-foreground" />
+  <Swatch name="brand" on="brand-foreground" />
+</Grid>
+
+## Status
+
+<Grid>
+  <Swatch name="destructive" on="destructive-foreground" />
+  <Swatch name="success" on="success-foreground" />
+  <Swatch name="warning" on="warning-foreground" />
+  <Swatch name="info" on="info-foreground" />
+</Grid>
+
+## Lines and focus
+
+`border` is for decorative separators. `input` outlines form controls and meets 3:1 against surfaces, as WCAG 1.4.11 requires. `ring` is the focus indicator.
+
+<Grid>
+  <Swatch name="border" />
+  <Swatch name="input" />
+  <Swatch name="ring" />
+</Grid>
+
+## Charts
+
+<Grid>
+  <Swatch name="chart-1" />
+  <Swatch name="chart-2" />
+  <Swatch name="chart-3" />
+  <Swatch name="chart-4" />
+  <Swatch name="chart-5" />
+</Grid>

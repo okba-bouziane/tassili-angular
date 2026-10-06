@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "preserve",
+    "types": ["node"],
+    "noPropertyAccessFromIndexSignature": false
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "include": ["../../../libs/ui/**/*.stories.ts", "*.ts", "../src/**/*.ts"],
+  "exclude": ["../../../libs/ui/**/*.spec.ts", "../../../libs/ui/node_modules"]
+}

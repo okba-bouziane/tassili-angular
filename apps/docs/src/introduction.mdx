@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Tassili
+
+Tassili is a personal design system for Angular: design tokens, accessible components and layout primitives, all themed through CSS variables.
+
+The name comes from Tassili n'Ajjer, the Saharan plateau whose rock paintings are among the oldest marks people have left. The palette follows it: sandstone neutrals, Tuareg indigo as the working color, and red ochre kept for the brand mark.
+
+## Install
+
+```bash
+pnpm add @tassili/ui @tassili/tokens
+pnpm add -D tailwindcss @tailwindcss/postcss
+```
+
+```css
+/* styles.css */
+@import 'tailwindcss';
+@import '@tassili/tokens/fonts.css';
+@import '@tassili/tokens/preset.css';
+@import '@tassili/ui/styles.css';
+```
+
+Import each component from its own entry point:
+
+```ts
+import { TslButton } from '@tassili/ui/button';
+```
+
+## Principles
+
+- **Tokens only.** Components use theme variables, never raw colors or pixel values, so a theme can restyle everything.
+- **Accessible by default.** Keyboard support, correct ARIA, visible focus and WCAG 2.2 AA contrast, verified by tests.
+- **Direction-agnostic.** Logical properties throughout; every component works right to left.
+- **Quiet motion.** Short, crisp transitions that switch off under `prefers-reduced-motion`.
+
+Use the toolbar to switch theme (light, dark, oasis) and direction (LTR, RTL) on any page.

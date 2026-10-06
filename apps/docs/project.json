@@ -1,0 +1,43 @@
+{
+  "name": "docs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/docs/src",
+  "tags": ["type:app"],
+  "implicitDependencies": ["ui", "tokens"],
+  "targets": {
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "continuous": true,
+      "options": {
+        "port": 6006,
+        "configDir": "apps/docs/.storybook",
+        "tsConfig": "apps/docs/.storybook/tsconfig.json",
+        "styles": ["libs/tokens/src/fonts.css", "apps/docs/src/styles.css"],
+        "compodoc": false
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "cache": true,
+      "inputs": ["default", "^production", "{workspaceRoot}/libs/ui/**/*.stories.ts"],
+      "options": {
+        "outputDir": "dist/storybook/docs",
+        "configDir": "apps/docs/.storybook",
+        "tsConfig": "apps/docs/.storybook/tsconfig.json",
+        "styles": ["libs/tokens/src/fonts.css", "apps/docs/src/styles.css"],
+        "compodoc": false,
+        "quiet": true
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": ["default", "^production"],
+      "options": {
+        "command": "tsc --noEmit -p apps/docs/.storybook/tsconfig.json"
+      }
+    }
+  }
+}

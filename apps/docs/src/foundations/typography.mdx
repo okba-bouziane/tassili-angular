@@ -1,0 +1,31 @@
+import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+| Role    | Family                                            | Used for                                             |
+| ------- | ------------------------------------------------- | ---------------------------------------------------- |
+| Display | Bricolage Grotesque (Noto Kufi Arabic for Arabic) | `h1`, `h2`, hero and stat numbers via `font-display` |
+| Text    | Instrument Sans (Noto Sans Arabic for Arabic)     | Everything else via `font-sans`                      |
+| Code    | JetBrains Mono                                    | Code and keyboard shortcuts only                     |
+
+All fonts are self-hosted and licensed under the SIL Open Font License. Arabic families sit behind the Latin ones in each stack, so mixed and right-to-left text picks the right glyphs automatically.
+
+<Unstyled>
+  <div style={{ display: 'grid', gap: 20, marginTop: 24 }}>
+    <div className="font-display text-6xl tracking-display">Tassili n'Ajjer</div>
+    <div className="font-display text-4xl tracking-display">Marks that outlast their makers</div>
+    <div className="font-display text-2xl tracking-display">طاسيلي ناجر</div>
+    <p className="text-base max-w-prose">
+      Body text is set at 16px with a 24px line height. Interface controls use 14px. Keep lines
+      under about 75 characters; the `max-w-prose` utility does that for running text.
+    </p>
+    <p className="text-sm text-muted-foreground">Secondary text uses the muted foreground token.</p>
+    <code className="text-sm">pnpm nx test ui</code>
+  </div>
+</Unstyled>
+
+## Scale
+
+`text-xs` 12 · `text-sm` 14 · `text-base` 16 · `text-lg` 18 · `text-xl` 20 · `text-2xl` 24 · `text-3xl` 30 · `text-4xl` 36 · `text-5xl` 48 · `text-6xl` 60 (pixels at the default root size).

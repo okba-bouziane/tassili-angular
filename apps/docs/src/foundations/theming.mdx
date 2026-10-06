@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Theming and RTL" />
+
+# Theming
+
+A theme is a set of CSS variable overrides. Components never check which theme is active.
+
+```html
+<html data-theme="light">
+  <!-- explicit light -->
+  <html data-theme="dark">
+    <!-- explicit dark -->
+    <html>
+      <!-- follows the operating system -->
+    </html>
+  </html>
+</html>
+```
+
+## Add a theme
+
+Create a stylesheet that overrides only the variables you want to change. Anything you leave out comes from the light theme.
+
+```css
+/* themes/oasis.css */
+[data-theme='oasis'] {
+  color-scheme: light;
+  --tsl-color-primary: oklch(0.45 0.08 175);
+  --tsl-color-primary-foreground: oklch(0.985 0.01 175);
+  --tsl-color-ring: oklch(0.5 0.08 175);
+}
+```
+
+For a dark-based theme, start from the `[data-theme='dark']` block in `tokens.css` and set `color-scheme: dark`. Run `pnpm nx test tokens` after changing colors; it checks every text and control pair against WCAG 2.2 AA.
+
+## Density
+
+All spacing derives from one variable. Raising it makes every padding, gap and margin roomier:
+
+```css
+[data-density='comfortable'] {
+  --tsl-space-unit: 0.28rem;
+}
+```
+
+## Right-to-left
+
+Components only use logical properties (`ms-*`, `pe-*`, `start-*`, `border-s`, `text-start`), so setting `dir="rtl"` on any ancestor mirrors them. `pnpm lint:styles` rejects physical utilities such as `ml-*` or `text-left`. Use the Direction toolbar to check any story.
+
+## Motion
+
+Durations come from `--tsl-duration-*` tokens (`duration-fast`, `duration-base`…). Under `prefers-reduced-motion: reduce` they drop to zero and animations are cut short.

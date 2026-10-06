@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+@import '@tassili/tokens/preset.css';
+@import '@tassili/tokens/themes/oasis.css';
+@import '@tassili/ui/styles.css';
+
+@source './';
+
+body {
+  background-color: var(--tsl-color-background);
+}
+
+/*
+ * Make Storybook's docs pages follow the active Tassili theme.
+ * !important is needed to beat Storybook's own docs theme (docs app only).
+ */
+.sbdocs.sbdocs-wrapper {
+  background-color: var(--tsl-color-background) !important;
+}
+
+.sbdocs.sbdocs-content :where(h1, h2, h3, h4, p, li, td, th, strong, a) {
+  color: var(--tsl-color-foreground) !important;
+}
+
+.sbdocs.sbdocs-content :where(table, tr, td, th) {
+  background-color: transparent !important;
+  border-color: var(--tsl-color-border) !important;
+}
+
+.sbdocs.sbdocs-content :where(code) {
+  background-color: var(--tsl-color-muted) !important;
+  color: var(--tsl-color-foreground) !important;
+  border-color: var(--tsl-color-border) !important;
+}
