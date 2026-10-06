@@ -45,6 +45,7 @@
       "@tassili/ui/switch": ["./libs/ui/switch/src/index.ts"],
       "@tassili/ui/textarea": ["./libs/ui/textarea/src/index.ts"],
       "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"],
+      "@tassili/ui/toast": ["./libs/ui/toast/src/index.ts"],
       "@tassili/ui/tooltip": ["./libs/ui/tooltip/src/index.ts"]
     }
   },
