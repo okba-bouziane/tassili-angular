@@ -2,4 +2,4 @@
 @import '@tassili/tokens/fonts.css';
 @import '@tassili/tokens/preset.css';
 
-@source '../../../libs/ui/src';
+@import '@tassili/ui/styles.css';

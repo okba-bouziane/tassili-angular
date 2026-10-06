@@ -1,10 +1,10 @@
 {
   "name": "ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ui/src",
+  "sourceRoot": "libs/ui",
   "prefix": "tsl",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:ui"],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
@@ -24,7 +24,10 @@
     "test": {
       "executor": "@nx/angular:unit-test",
       "options": {
-        "watch": false
+        "watch": false,
+        "include": ["**/*.spec.ts"],
+        "tsConfig": "libs/ui/tsconfig.spec.json",
+        "exclude": ["node_modules/**"]
       }
     },
     "lint": {

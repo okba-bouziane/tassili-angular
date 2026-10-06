@@ -11,7 +11,14 @@ export default [
       '@nx/dependency-checks': [
         'error',
         {
-          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs,ts,cts,mts}'],
+          ignoredFiles: [
+            '{projectRoot}/eslint.config.{js,cjs,mjs,ts,cts,mts}',
+            '{projectRoot}/**/*.spec.ts',
+            '{projectRoot}/**/*.stories.ts',
+            '{projectRoot}/**/testing/**',
+          ],
+          // Consumed from styles.css / emitted code, not from TypeScript imports.
+          ignoredDependencies: ['@tassili/tokens', 'tailwindcss', 'tw-animate-css', 'tslib'],
         },
       ],
     },

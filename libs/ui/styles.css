@@ -1,0 +1,12 @@
+/*
+ * @tassili/ui stylesheet. Import after tailwindcss and the token preset:
+ *
+ *   @import 'tailwindcss';
+ *   @import '@tassili/tokens/fonts.css';
+ *   @import '@tassili/tokens/preset.css';
+ *   @import '@tassili/ui/styles.css';
+ */
+@import 'tw-animate-css';
+
+/* Let Tailwind find the utility classes used by the components in this package. */
+@source './';
