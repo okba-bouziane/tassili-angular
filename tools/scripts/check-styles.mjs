@@ -56,7 +56,8 @@ function* walk(directory) {
     if (SKIP_DIRS.has(entry)) continue;
     const path = join(directory, entry);
     if (statSync(path).isDirectory()) yield* walk(path);
-    else if (EXTENSIONS.has(extname(path))) yield path;
+    // Specs describe behaviour ("right-to-left") and never ship styles.
+    else if (EXTENSIONS.has(extname(path)) && !path.endsWith('.spec.ts')) yield path;
   }
 }
 

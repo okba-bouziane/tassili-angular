@@ -34,6 +34,7 @@
       "@tassili/ui/radio-group": ["./libs/ui/radio-group/src/index.ts"],
       "@tassili/ui/select": ["./libs/ui/select/src/index.ts"],
       "@tassili/ui/separator": ["./libs/ui/separator/src/index.ts"],
+      "@tassili/ui/sheet": ["./libs/ui/sheet/src/index.ts"],
       "@tassili/ui/skeleton": ["./libs/ui/skeleton/src/index.ts"],
       "@tassili/ui/slider": ["./libs/ui/slider/src/index.ts"],
       "@tassili/ui/spinner": ["./libs/ui/spinner/src/index.ts"],
