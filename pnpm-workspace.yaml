@@ -1,0 +1,9 @@
+packages:
+  - 'libs/*'
+
+onlyBuiltDependencies:
+  - esbuild
+  - '@parcel/watcher'
+  - lmdb
+  - msgpackr-extract
+  - nx
