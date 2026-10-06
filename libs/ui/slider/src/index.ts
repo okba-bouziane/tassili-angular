@@ -1,0 +1,1 @@
+export { TslSlider } from './slider';
