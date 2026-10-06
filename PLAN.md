@@ -2,7 +2,7 @@
 
 Living plan for the UI library + starter template monorepo. Update the checklist as work lands.
 
-**Status:** Phase 1 complete (2026-10-06). Next: Phase 2, starting with Button.
+**Status:** Phase 2 in progress. Primitives done; next: Overlays.
 
 ## Decisions
 
@@ -92,7 +92,7 @@ Living plan for the UI library + starter template monorepo. Update the checklist
 
 Each component needs: cva variants/sizes, keyboard + ARIA, focus-visible, AA contrast, tokens only, stories + docs, unit tests (behaviour + a11y), its own secondary entry point.
 
-- Primitives: [ ] Button [ ] Icon [ ] Input [ ] Textarea [ ] Label [ ] Checkbox [ ] Radio [ ] Switch [ ] Select [ ] Combobox [ ] Slider [ ] Badge [ ] Avatar [ ] Separator [ ] Skeleton [ ] Spinner
+- Primitives: [x] Button [x] Icon [x] Input [x] Textarea [x] Label [x] Checkbox [x] Radio [x] Switch [x] Select [x] Combobox [x] Slider [x] Badge [x] Avatar [x] Separator [x] Skeleton [x] Spinner
 - Overlays: [ ] Dialog [ ] Sheet/Drawer [ ] Popover [ ] Tooltip [ ] Dropdown Menu [ ] Context Menu [ ] Command palette [ ] Toast
 - Navigation: [ ] Tabs [ ] Breadcrumb [ ] Pagination [ ] Sidebar [ ] Navbar [ ] Stepper
 - Data: [ ] Card [ ] Table (sort, paginate, select) [ ] Accordion [ ] Alert [ ] Progress [ ] Empty State [ ] Calendar/Date Picker

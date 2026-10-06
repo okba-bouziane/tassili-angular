@@ -21,6 +21,8 @@
     "isolatedModules": true,
     "paths": {
       "@tassili/ui": ["./libs/ui/src/index.ts"],
+      "@tassili/ui/avatar": ["./libs/ui/avatar/src/index.ts"],
+      "@tassili/ui/badge": ["./libs/ui/badge/src/index.ts"],
       "@tassili/ui/button": ["./libs/ui/button/src/index.ts"],
       "@tassili/ui/checkbox": ["./libs/ui/checkbox/src/index.ts"],
       "@tassili/ui/combobox": ["./libs/ui/combobox/src/index.ts"],
@@ -30,7 +32,10 @@
       "@tassili/ui/label": ["./libs/ui/label/src/index.ts"],
       "@tassili/ui/radio-group": ["./libs/ui/radio-group/src/index.ts"],
       "@tassili/ui/select": ["./libs/ui/select/src/index.ts"],
+      "@tassili/ui/separator": ["./libs/ui/separator/src/index.ts"],
+      "@tassili/ui/skeleton": ["./libs/ui/skeleton/src/index.ts"],
       "@tassili/ui/slider": ["./libs/ui/slider/src/index.ts"],
+      "@tassili/ui/spinner": ["./libs/ui/spinner/src/index.ts"],
       "@tassili/ui/switch": ["./libs/ui/switch/src/index.ts"],
       "@tassili/ui/textarea": ["./libs/ui/textarea/src/index.ts"],
       "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"]

@@ -15,8 +15,13 @@ const EXTENSIONS = new Set(['.ts', '.html', '.css', '.mdx']);
 const SKIP_DIRS = new Set(['node_modules', 'dist', '.angular', 'storybook-static']);
 const ALLOW_MARKER = 'tsl-allow-style:';
 
-const PHYSICAL_UTILITY =
-  /(?<![\w-])-?(?:m[lr]|p[lr]|scroll-m[lr]|scroll-p[lr]|left|right|border-[lr]|rounded-[lr]|rounded-[tb][lr]|inset-[lr]|translate-x-(?!0\b)|space-x-reverse|divide-x-reverse)(?:-[\w./[\]()%-]+)?(?![\w-])/;
+// Utilities that always take a value (`ml-2`, `left-0`) vs. ones that can be bare (`border-l`).
+const PHYSICAL_UTILITY = new RegExp(
+  [
+    String.raw`(?<![\w-])-?(?:m[lr]|p[lr]|scroll-m[lr]|scroll-p[lr]|left|right|inset-[lr]|translate-x)-(?!0(?![\w.]))[\w./[\]()%-]+(?![\w-])`,
+    String.raw`(?<![\w-])(?:border-[lr]|rounded-[lr]|rounded-[tb][lr]|space-x-reverse|divide-x-reverse)(?:-[\w./[\]()%-]+)?(?![\w-])`,
+  ].join('|'),
+);
 const PHYSICAL_KEYWORD =
   /(?<![\w-])(?:text-left|text-right|float-left|float-right|clear-left|clear-right)(?![\w-])/;
 const PHYSICAL_CSS =
