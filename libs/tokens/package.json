@@ -39,7 +39,11 @@
       "optional": true
     }
   },
-  "publishConfig": {
-    "access": "public"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okba-bouziane/tassili-angular.git",
+    "directory": "libs/tokens"
+  },
+  "homepage": "https://github.com/okba-bouziane/tassili-angular#readme",
+  "bugs": "https://github.com/okba-bouziane/tassili-angular/issues"
 }

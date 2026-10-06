@@ -25,8 +25,9 @@
     "validate": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm license:check && pnpm build:storybook",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install --lockfile-only && pnpm license:write",
-    "release": "nx run-many -t build -p ui tokens && changeset publish",
-    "prepare": "simple-git-hooks"
+    "release": "nx run-many -t build -p ui tokens && node tools/scripts/github-release.mjs --publish",
+    "prepare": "simple-git-hooks",
+    "pack:packages": "nx run-many -t build -p ui tokens && node tools/scripts/github-release.mjs"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.2202.1",
@@ -38,6 +39,7 @@
     "@angular/compiler-cli": "~22.2.1",
     "@angular/language-service": "~22.2.1",
     "@axe-core/playwright": "^4.13.0",
+    "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
@@ -109,5 +111,9 @@
     "commit-msg": "pnpm exec commitlint --edit \"$1\""
   },
   "description": "Tassili design system: Angular UI library, design tokens and starter template.",
-  "author": "Okba Bouziane"
+  "author": "Okba Bouziane",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okba-bouziane/tassili-angular.git"
+  }
 }

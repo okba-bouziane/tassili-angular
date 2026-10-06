@@ -1,7 +1,8 @@
 name: Release
 
-# Opens a "Version packages" PR from pending changesets; merging it publishes to npm.
-# Requires the NPM_TOKEN repository secret (an npm automation token with publish rights to @tassili).
+# 1. While changesets are pending on main, opens/updates a "Version packages" PR.
+# 2. Merging that PR bumps versions; this workflow then builds both packages and
+#    attaches the .tgz files to a GitHub Release tagged v<version>. No npm registry.
 
 on:
   push:
@@ -10,7 +11,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  id-token: write
 
 concurrency:
   group: release
@@ -33,7 +33,6 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-          registry-url: https://registry.npmjs.org
 
       - run: pnpm install --frozen-lockfile
 
@@ -43,7 +42,7 @@ jobs:
           publish: pnpm release
           commit: 'chore(release): version packages'
           title: 'chore(release): version packages'
+          createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -12,8 +12,8 @@ Living plan for the UI library + starter template monorepo. Update the checklist
 
 ## Open questions for the owner
 
-- [ ] Create the `tassili` npm organization (needed before the first publish) and add an `NPM_TOKEN` secret to the GitHub repo
-- [ ] GitHub repository URL (for `repository` fields and GitHub-linked changelogs)
+- [x] No npm for now: packages ship as `.tgz` assets on GitHub Releases (`v<version>`), installed by URL
+- [x] Repository: https://github.com/okba-bouziane/tassili-angular (public)
 
 ## Verified environment (2026-10-06)
 
@@ -84,8 +84,8 @@ Living plan for the UI library + starter template monorepo. Update the checklist
 - [x] `apps/template` skeleton: zoneless, lazy routes, theme wired
 - [x] Unit tests (Vitest 5 via Angular builder, Testing Library, axe-core) and Playwright (prod build, desktop + 360px, axe WCAG 2.2 AA, no horizontal scroll)
 - [x] License policy script + THIRD_PARTY_LICENSES.md, MIT LICENSE
-- [x] Changesets (fixed versioning for ui + tokens, publish from `dist`)
-- [x] GitHub Actions: CI (format, license, lint, typecheck, test, build, pack dry run, Storybook) + e2e job + release workflow
+- [x] Changesets (fixed versioning for ui + tokens) with GitHub-linked changelogs
+- [x] GitHub Actions: CI (format, license, lint, typecheck, test, build, pack dry run, Storybook) + e2e job + release workflow (GitHub Releases, no npm)
 - [x] Phase summary
 
 ### Phase 2: Components
@@ -114,7 +114,8 @@ Each component needs: cva variants/sizes, keyboard + ARIA, focus-visible, AA con
 ### Phase 4: Release readiness
 
 - [ ] README: install, theming, contributing
-- [ ] Changesets release flow, ng-packagr build, `npm pack --dry-run`
+- [ ] Changesets release flow → GitHub Release with tarballs; verify install by URL in a fresh Angular app
+- [ ] Copy-source option (shadcn-style): `tassili add <component>` script that copies a component's source into another project
 - [ ] CI complete
 - [ ] Lighthouse: a11y ≥ 95, perf ≥ 90 on the template
 - [ ] Phase summary

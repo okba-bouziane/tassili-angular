@@ -53,10 +53,8 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Package dry run
-        run: |
-          (cd dist/libs/ui && npm pack --dry-run)
-          (cd libs/tokens && npm pack --dry-run)
+      - name: Pack release tarballs
+        run: node tools/scripts/github-release.mjs
 
       - name: Build Storybook
         run: pnpm build:storybook

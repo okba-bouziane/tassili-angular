@@ -75,6 +75,12 @@
 | New component entry point | `pnpm nx g @nx/angular:library-secondary-entry-point --library=ui --name=<name> --skipModule` (then delete its README and keep `libs/ui/tsconfig.lib.json` include as `**/src/**/*.ts`) |
 | Changeset                 | `pnpm changeset`                                                                                                                                                                        |
 
+## Distribution (no npm registry)
+
+- Releases are GitHub Releases tagged `v<version>` with `tassili-tokens-<v>.tgz` and `tassili-ui-<v>.tgz` attached (`.github/workflows/release.yml` + `tools/scripts/github-release.mjs`).
+- Consumers install by URL: `pnpm add https://github.com/okba-bouziane/tassili-angular/releases/download/v<v>/tassili-ui-<v>.tgz` (and the tokens tarball).
+- Do not publish to npm unless the owner asks.
+
 ## Gotchas
 
 - Storybook (webpack) needs `apps/docs/.postcssrc.json` with `transformAssetUrls: false` and fonts loaded as a separate style entry; the esbuild apps use the root `.postcssrc.json`.

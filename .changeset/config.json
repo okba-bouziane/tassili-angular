@@ -1,14 +1,19 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@4.0.1/schema.json",
   "baseBranch": "main",
-  "access": "public",
+  "access": "restricted",
   "ignore": [],
   "fixed": [["@tassili/ui", "@tassili/tokens"]],
   "linked": [],
   "format": "prettier",
   "updateInternalDependencies": "patch",
   "commit": false,
-  "changelog": "@changesets/cli/changelog",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "okba-bouziane/tassili-angular"
+    }
+  ],
   "changedFilePatterns": [
     "src/**",
     "**/src/**",
