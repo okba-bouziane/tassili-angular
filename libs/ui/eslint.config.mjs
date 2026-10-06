@@ -45,13 +45,14 @@ export default [
           style: 'camelCase',
         },
       ],
+      // Components are elements (tsl-dialog) or attributes on native elements (button[tslDropdownMenuCheckbox])
+      // so interactive parts keep native semantics.
       '@angular-eslint/component-selector': [
         'error',
-        {
-          type: 'element',
-          prefix: 'tsl',
-          style: 'kebab-case',
-        },
+        [
+          { type: 'element', prefix: 'tsl', style: 'kebab-case' },
+          { type: 'attribute', prefix: 'tsl', style: 'camelCase' },
+        ],
       ],
     },
   },
