@@ -1,0 +1,219 @@
+/*
+ * Tailwind CSS v4 theme for Tassili.
+ *
+ * Replaces Tailwind's default palette, radius, shadow, font and easing scales
+ * with Tassili tokens, so only token-backed utilities exist (no bg-red-500).
+ * Import after `tailwindcss` and after tokens.css (preset.css does both).
+ */
+
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme]), :root:not([data-theme]) *) {
+      @slot;
+    }
+  }
+}
+
+@theme inline {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-accent: var(--tsl-color-accent);
+  --color-accent-foreground: var(--tsl-color-accent-foreground);
+  --color-background: var(--tsl-color-background);
+  --color-border: var(--tsl-color-border);
+  --color-brand: var(--tsl-color-brand);
+  --color-brand-foreground: var(--tsl-color-brand-foreground);
+  --color-card: var(--tsl-color-card);
+  --color-card-foreground: var(--tsl-color-card-foreground);
+  --color-chart-1: var(--tsl-color-chart-1);
+  --color-chart-2: var(--tsl-color-chart-2);
+  --color-chart-3: var(--tsl-color-chart-3);
+  --color-chart-4: var(--tsl-color-chart-4);
+  --color-chart-5: var(--tsl-color-chart-5);
+  --color-destructive: var(--tsl-color-destructive);
+  --color-destructive-foreground: var(--tsl-color-destructive-foreground);
+  --color-destructive-hover: var(--tsl-color-destructive-hover);
+  --color-foreground: var(--tsl-color-foreground);
+  --color-info: var(--tsl-color-info);
+  --color-info-foreground: var(--tsl-color-info-foreground);
+  --color-input: var(--tsl-color-input);
+  --color-muted: var(--tsl-color-muted);
+  --color-muted-foreground: var(--tsl-color-muted-foreground);
+  --color-overlay: var(--tsl-color-overlay);
+  --color-popover: var(--tsl-color-popover);
+  --color-popover-foreground: var(--tsl-color-popover-foreground);
+  --color-primary: var(--tsl-color-primary);
+  --color-primary-foreground: var(--tsl-color-primary-foreground);
+  --color-primary-hover: var(--tsl-color-primary-hover);
+  --color-ring: var(--tsl-color-ring);
+  --color-secondary: var(--tsl-color-secondary);
+  --color-secondary-foreground: var(--tsl-color-secondary-foreground);
+  --color-secondary-hover: var(--tsl-color-secondary-hover);
+  --color-selection: var(--tsl-color-selection);
+  --color-sidebar: var(--tsl-color-sidebar);
+  --color-sidebar-accent: var(--tsl-color-sidebar-accent);
+  --color-sidebar-accent-foreground: var(--tsl-color-sidebar-accent-foreground);
+  --color-sidebar-border: var(--tsl-color-sidebar-border);
+  --color-sidebar-foreground: var(--tsl-color-sidebar-foreground);
+  --color-success: var(--tsl-color-success);
+  --color-success-foreground: var(--tsl-color-success-foreground);
+  --color-warning: var(--tsl-color-warning);
+  --color-warning-foreground: var(--tsl-color-warning-foreground);
+
+  --font-*: initial;
+  --font-sans: var(--tsl-font-sans);
+  --font-display: var(--tsl-font-display);
+  --font-mono: var(--tsl-font-mono);
+
+  --text-xs: var(--tsl-text-xs);
+  --text-xs--line-height: var(--tsl-text-xs--line-height);
+  --text-sm: var(--tsl-text-sm);
+  --text-sm--line-height: var(--tsl-text-sm--line-height);
+  --text-base: var(--tsl-text-base);
+  --text-base--line-height: var(--tsl-text-base--line-height);
+  --text-lg: var(--tsl-text-lg);
+  --text-lg--line-height: var(--tsl-text-lg--line-height);
+  --text-xl: var(--tsl-text-xl);
+  --text-xl--line-height: var(--tsl-text-xl--line-height);
+  --text-2xl: var(--tsl-text-2xl);
+  --text-2xl--line-height: var(--tsl-text-2xl--line-height);
+  --text-3xl: var(--tsl-text-3xl);
+  --text-3xl--line-height: var(--tsl-text-3xl--line-height);
+  --text-4xl: var(--tsl-text-4xl);
+  --text-4xl--line-height: var(--tsl-text-4xl--line-height);
+  --text-5xl: var(--tsl-text-5xl);
+  --text-5xl--line-height: var(--tsl-text-5xl--line-height);
+  --text-6xl: var(--tsl-text-6xl);
+  --text-6xl--line-height: var(--tsl-text-6xl--line-height);
+  --text-7xl: initial;
+  --text-8xl: initial;
+  --text-9xl: initial;
+
+  --tracking-display: var(--tsl-tracking-display);
+  --tracking-tight: var(--tsl-tracking-tight);
+  --tracking-normal: var(--tsl-tracking-normal);
+
+  --spacing: var(--tsl-space-unit);
+
+  --radius-*: initial;
+  --radius-xs: var(--tsl-radius-xs);
+  --radius-sm: var(--tsl-radius-sm);
+  --radius-md: var(--tsl-radius-md);
+  --radius-lg: var(--tsl-radius-lg);
+  --radius-xl: var(--tsl-radius-xl);
+  --radius-full: var(--tsl-radius-full);
+
+  --shadow-*: initial;
+  --shadow-xs: var(--tsl-shadow-xs);
+  --shadow-sm: var(--tsl-shadow-sm);
+  --shadow-md: var(--tsl-shadow-md);
+  --shadow-lg: var(--tsl-shadow-lg);
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --text-shadow-*: initial;
+
+  --ease-*: initial;
+  --ease-standard: var(--tsl-ease-standard);
+  --ease-out: var(--tsl-ease-out);
+  --ease-in: var(--tsl-ease-in);
+  --ease-in-out: var(--tsl-ease-in-out);
+
+  --default-transition-duration: var(--tsl-duration-base);
+  --default-transition-timing-function: var(--tsl-ease-standard);
+  --default-font-family: var(--tsl-font-sans);
+  --default-mono-font-family: var(--tsl-font-mono);
+
+  --container-sm: var(--tsl-container-sm);
+  --container-md: var(--tsl-container-md);
+  --container-lg: var(--tsl-container-lg);
+  --container-xl: var(--tsl-container-xl);
+  --container-2xl: var(--tsl-container-2xl);
+
+  --breakpoint-xs: 22.5rem;
+}
+
+/* Motion durations */
+@utility duration-instant {
+  --tw-duration: var(--tsl-duration-instant);
+  transition-duration: var(--tsl-duration-instant);
+}
+@utility duration-fast {
+  --tw-duration: var(--tsl-duration-fast);
+  transition-duration: var(--tsl-duration-fast);
+}
+@utility duration-base {
+  --tw-duration: var(--tsl-duration-base);
+  transition-duration: var(--tsl-duration-base);
+}
+@utility duration-slow {
+  --tw-duration: var(--tsl-duration-slow);
+  transition-duration: var(--tsl-duration-slow);
+}
+@utility duration-slower {
+  --tw-duration: var(--tsl-duration-slower);
+  transition-duration: var(--tsl-duration-slower);
+}
+
+/* Layering */
+@utility z-base {
+  z-index: var(--tsl-z-base);
+}
+@utility z-raised {
+  z-index: var(--tsl-z-raised);
+}
+@utility z-sticky {
+  z-index: var(--tsl-z-sticky);
+}
+@utility z-header {
+  z-index: var(--tsl-z-header);
+}
+@utility z-overlay {
+  z-index: var(--tsl-z-overlay);
+}
+@utility z-modal {
+  z-index: var(--tsl-z-modal);
+}
+@utility z-popover {
+  z-index: var(--tsl-z-popover);
+}
+@utility z-toast {
+  z-index: var(--tsl-z-toast);
+}
+@utility z-tooltip {
+  z-index: var(--tsl-z-tooltip);
+}
+
+/* Control heights */
+@utility h-control-sm {
+  height: var(--tsl-control-sm);
+}
+@utility h-control-md {
+  height: var(--tsl-control-md);
+}
+@utility h-control-lg {
+  height: var(--tsl-control-lg);
+}
+@utility size-control-sm {
+  width: var(--tsl-control-sm);
+  height: var(--tsl-control-sm);
+}
+@utility size-control-md {
+  width: var(--tsl-control-md);
+  height: var(--tsl-control-md);
+}
+@utility size-control-lg {
+  width: var(--tsl-control-lg);
+  height: var(--tsl-control-lg);
+}
+
+/* Shared focus ring for interactive components */
+@utility focus-ring {
+  &:focus-visible {
+    outline: var(--tsl-focus-ring-width) solid var(--tsl-color-ring);
+    outline-offset: var(--tsl-focus-ring-offset);
+  }
+}

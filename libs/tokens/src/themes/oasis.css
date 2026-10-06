@@ -1,0 +1,25 @@
+/*
+ * Example extra theme: "oasis".
+ *
+ * A theme is only a set of variable overrides. Anything not listed here is
+ * inherited from the light theme in tokens.css. Activate with:
+ *   <html data-theme="oasis">
+ *
+ * To make a dark-based theme, start from a copy of the [data-theme='dark'] block
+ * and set `color-scheme: dark`.
+ */
+[data-theme='oasis'] {
+  color-scheme: light;
+
+  --tsl-color-primary: oklch(0.45 0.08 175);
+  --tsl-color-primary-foreground: oklch(0.985 0.01 175);
+  --tsl-color-primary-hover: oklch(0.4 0.07 175);
+  --tsl-color-ring: oklch(0.5 0.09 175);
+  --tsl-color-secondary: oklch(0.94 0.02 175);
+  --tsl-color-secondary-foreground: oklch(0.27 0.05 175);
+  --tsl-color-secondary-hover: oklch(0.91 0.025 175);
+  --tsl-color-accent: oklch(0.945 0.018 175);
+  --tsl-color-sidebar-accent: oklch(0.93 0.02 175);
+  --tsl-color-selection: oklch(0.45 0.08 175 / 0.18);
+  --tsl-color-chart-1: oklch(0.45 0.08 175);
+}

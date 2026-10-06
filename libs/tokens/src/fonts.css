@@ -1,0 +1,11 @@
+/*
+ * Self-hosted Tassili typefaces (all SIL Open Font License 1.1).
+ * Optional: skip this import if your app loads the fonts another way.
+ * Each family uses unicode-range subsets, so browsers fetch only what a page needs.
+ */
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/jetbrains-mono';
+/* Arabic script support for RTL interfaces */
+@import '@fontsource-variable/noto-sans-arabic';
+@import '@fontsource-variable/noto-kufi-arabic';

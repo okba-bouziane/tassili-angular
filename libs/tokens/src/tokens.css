@@ -1,0 +1,330 @@
+/*
+ * Tassili design tokens.
+ *
+ * Every visual decision in @tassili/ui resolves to one of these variables.
+ * Themes override variables only; components never branch on the theme.
+ *
+ * Theme selection:
+ *   <html data-theme="light">  explicit light
+ *   <html data-theme="dark">   explicit dark ("desert night")
+ *   <html>                     follows prefers-color-scheme
+ *   <html data-theme="oasis">  any extra theme, see ./themes/
+ *
+ * Colors are OKLCH. Contrast pairs are verified against WCAG 2.2 AA by
+ * libs/tokens/test/contrast.spec.ts; run it after changing any color.
+ */
+
+/* ---------------------------------------------------------------------------
+ * Scales: typography, spacing, radius, motion, z-index (theme-independent)
+ * ------------------------------------------------------------------------- */
+:root {
+  /* Typography */
+  /* Arabic families follow the Latin ones so RTL/Arabic text falls back by glyph. */
+  --tsl-font-sans:
+    'Instrument Sans Variable', 'Instrument Sans', 'Noto Sans Arabic Variable', ui-sans-serif,
+    system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --tsl-font-display:
+    'Bricolage Grotesque Variable', 'Bricolage Grotesque', 'Noto Kufi Arabic Variable',
+    var(--tsl-font-sans);
+  --tsl-font-mono:
+    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --tsl-text-xs: 0.75rem;
+  --tsl-text-xs--line-height: 1rem;
+  --tsl-text-sm: 0.875rem;
+  --tsl-text-sm--line-height: 1.25rem;
+  --tsl-text-base: 1rem;
+  --tsl-text-base--line-height: 1.5rem;
+  --tsl-text-lg: 1.125rem;
+  --tsl-text-lg--line-height: 1.625rem;
+  --tsl-text-xl: 1.25rem;
+  --tsl-text-xl--line-height: 1.75rem;
+  --tsl-text-2xl: 1.5rem;
+  --tsl-text-2xl--line-height: 2rem;
+  --tsl-text-3xl: 1.875rem;
+  --tsl-text-3xl--line-height: 2.25rem;
+  --tsl-text-4xl: 2.25rem;
+  --tsl-text-4xl--line-height: 2.5rem;
+  --tsl-text-5xl: 3rem;
+  --tsl-text-5xl--line-height: 1.05;
+  --tsl-text-6xl: 3.75rem;
+  --tsl-text-6xl--line-height: 1;
+
+  --tsl-tracking-display: -0.025em;
+  --tsl-tracking-tight: -0.01em;
+  --tsl-tracking-normal: 0em;
+
+  --tsl-font-weight-normal: 400;
+  --tsl-font-weight-medium: 500;
+  --tsl-font-weight-semibold: 600;
+  --tsl-font-weight-bold: 700;
+
+  /* Spacing: one unit drives the whole Tailwind spacing scale (p-4 = 4 units).
+     Density themes change this single value. */
+  --tsl-space-unit: 0.25rem;
+
+  /* Control heights (buttons, inputs, selects) */
+  --tsl-control-sm: 2rem;
+  --tsl-control-md: 2.25rem;
+  --tsl-control-lg: 2.75rem;
+
+  /* Radius: tighter for controls, larger as surfaces grow */
+  --tsl-radius-xs: 0.125rem;
+  --tsl-radius-sm: 0.25rem;
+  --tsl-radius-md: 0.375rem;
+  --tsl-radius-lg: 0.625rem;
+  --tsl-radius-xl: 0.875rem;
+  --tsl-radius-full: 9999px;
+
+  /* Focus */
+  --tsl-focus-ring-width: 2px;
+  --tsl-focus-ring-offset: 2px;
+
+  /* Motion: crisp, short, no bounce */
+  --tsl-duration-instant: 60ms;
+  --tsl-duration-fast: 120ms;
+  --tsl-duration-base: 160ms;
+  --tsl-duration-slow: 240ms;
+  --tsl-duration-slower: 360ms;
+  --tsl-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --tsl-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --tsl-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --tsl-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Layering */
+  --tsl-z-base: 0;
+  --tsl-z-raised: 10;
+  --tsl-z-sticky: 100;
+  --tsl-z-header: 200;
+  --tsl-z-overlay: 1000;
+  --tsl-z-modal: 1100;
+  --tsl-z-popover: 1200;
+  --tsl-z-toast: 1300;
+  --tsl-z-tooltip: 1400;
+
+  /* Layout */
+  --tsl-container-sm: 40rem;
+  --tsl-container-md: 48rem;
+  --tsl-container-lg: 64rem;
+  --tsl-container-xl: 80rem;
+  --tsl-container-2xl: 96rem;
+  --tsl-sidebar-width: 16rem;
+  --tsl-sidebar-width-collapsed: 3.5rem;
+  --tsl-header-height: 3.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --tsl-duration-instant: 0ms;
+    --tsl-duration-fast: 0ms;
+    --tsl-duration-base: 0ms;
+    --tsl-duration-slow: 0ms;
+    --tsl-duration-slower: 0ms;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Light theme ("sandstone"): default
+ * ------------------------------------------------------------------------- */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --tsl-color-background: oklch(0.985 0.004 70);
+  --tsl-color-foreground: oklch(0.22 0.03 268);
+
+  --tsl-color-card: oklch(0.997 0.002 70);
+  --tsl-color-card-foreground: oklch(0.22 0.03 268);
+  --tsl-color-popover: oklch(0.997 0.002 70);
+  --tsl-color-popover-foreground: oklch(0.22 0.03 268);
+
+  --tsl-color-muted: oklch(0.955 0.006 70);
+  --tsl-color-muted-foreground: oklch(0.48 0.025 265);
+
+  /* Tuareg indigo */
+  --tsl-color-primary: oklch(0.42 0.15 268);
+  --tsl-color-primary-foreground: oklch(0.985 0.005 268);
+  --tsl-color-primary-hover: oklch(0.37 0.14 268);
+
+  --tsl-color-secondary: oklch(0.94 0.012 268);
+  --tsl-color-secondary-foreground: oklch(0.25 0.05 268);
+  --tsl-color-secondary-hover: oklch(0.91 0.016 268);
+
+  /* Subtle interactive surface: hovered rows, menu items */
+  --tsl-color-accent: oklch(0.945 0.012 268);
+  --tsl-color-accent-foreground: oklch(0.22 0.03 268);
+
+  /* Red ochre: the brand mark, used sparingly */
+  --tsl-color-brand: oklch(0.55 0.16 40);
+  --tsl-color-brand-foreground: oklch(0.985 0.005 40);
+
+  --tsl-color-destructive: oklch(0.53 0.2 27);
+  --tsl-color-destructive-foreground: oklch(0.985 0.005 27);
+  --tsl-color-destructive-hover: oklch(0.48 0.19 27);
+  --tsl-color-success: oklch(0.5 0.12 155);
+  --tsl-color-success-foreground: oklch(0.985 0.01 155);
+  --tsl-color-warning: oklch(0.82 0.15 78);
+  --tsl-color-warning-foreground: oklch(0.28 0.06 60);
+  --tsl-color-info: oklch(0.52 0.11 240);
+  --tsl-color-info-foreground: oklch(0.985 0.005 240);
+
+  /* Hairline separators (decorative) */
+  --tsl-color-border: oklch(0.9 0.008 70);
+  /* Form-control outlines: 3:1 against background (WCAG 1.4.11) */
+  --tsl-color-input: oklch(0.64 0.015 265);
+  --tsl-color-ring: oklch(0.5 0.16 268);
+  --tsl-color-overlay: oklch(0.22 0.03 268 / 0.4);
+  --tsl-color-selection: oklch(0.42 0.15 268 / 0.18);
+
+  /* Charts: categorical, distinguishable in both themes */
+  --tsl-color-chart-1: oklch(0.42 0.15 268);
+  --tsl-color-chart-2: oklch(0.6 0.15 40);
+  --tsl-color-chart-3: oklch(0.6 0.1 175);
+  --tsl-color-chart-4: oklch(0.75 0.13 85);
+  --tsl-color-chart-5: oklch(0.6 0.14 320);
+
+  /* Sidebar */
+  --tsl-color-sidebar: oklch(0.97 0.005 70);
+  --tsl-color-sidebar-foreground: oklch(0.22 0.03 268);
+  --tsl-color-sidebar-accent: oklch(0.93 0.012 268);
+  --tsl-color-sidebar-accent-foreground: oklch(0.22 0.03 268);
+  --tsl-color-sidebar-border: oklch(0.9 0.008 70);
+
+  /* Elevation: indigo-tinted, low and layered */
+  --tsl-shadow-xs: 0 1px 2px oklch(0.22 0.03 268 / 0.06);
+  --tsl-shadow-sm: 0 1px 2px oklch(0.22 0.03 268 / 0.06), 0 1px 3px oklch(0.22 0.03 268 / 0.08);
+  --tsl-shadow-md: 0 2px 4px oklch(0.22 0.03 268 / 0.05), 0 6px 16px oklch(0.22 0.03 268 / 0.08);
+  --tsl-shadow-lg: 0 4px 8px oklch(0.22 0.03 268 / 0.05), 0 16px 40px oklch(0.22 0.03 268 / 0.12);
+}
+
+/* ---------------------------------------------------------------------------
+ * Dark theme ("desert night")
+ * Shared by the explicit attribute and the system preference fallback.
+ * ------------------------------------------------------------------------- */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --tsl-color-background: oklch(0.17 0.022 268);
+  --tsl-color-foreground: oklch(0.95 0.008 75);
+
+  --tsl-color-card: oklch(0.205 0.024 268);
+  --tsl-color-card-foreground: oklch(0.95 0.008 75);
+  --tsl-color-popover: oklch(0.22 0.026 268);
+  --tsl-color-popover-foreground: oklch(0.95 0.008 75);
+
+  --tsl-color-muted: oklch(0.25 0.025 268);
+  --tsl-color-muted-foreground: oklch(0.73 0.02 265);
+
+  --tsl-color-primary: oklch(0.74 0.12 272);
+  --tsl-color-primary-foreground: oklch(0.18 0.05 268);
+  --tsl-color-primary-hover: oklch(0.79 0.1 272);
+
+  --tsl-color-secondary: oklch(0.27 0.03 268);
+  --tsl-color-secondary-foreground: oklch(0.95 0.008 75);
+  --tsl-color-secondary-hover: oklch(0.31 0.032 268);
+
+  --tsl-color-accent: oklch(0.28 0.03 268);
+  --tsl-color-accent-foreground: oklch(0.95 0.008 75);
+
+  --tsl-color-brand: oklch(0.72 0.14 48);
+  --tsl-color-brand-foreground: oklch(0.18 0.04 40);
+
+  --tsl-color-destructive: oklch(0.68 0.17 25);
+  --tsl-color-destructive-foreground: oklch(0.18 0.04 25);
+  --tsl-color-destructive-hover: oklch(0.73 0.15 25);
+  --tsl-color-success: oklch(0.72 0.14 155);
+  --tsl-color-success-foreground: oklch(0.18 0.04 155);
+  --tsl-color-warning: oklch(0.82 0.14 80);
+  --tsl-color-warning-foreground: oklch(0.22 0.05 60);
+  --tsl-color-info: oklch(0.72 0.11 240);
+  --tsl-color-info-foreground: oklch(0.18 0.04 240);
+
+  --tsl-color-border: oklch(0.3 0.025 268);
+  --tsl-color-input: oklch(0.53 0.03 268);
+  --tsl-color-ring: oklch(0.74 0.12 272);
+  --tsl-color-overlay: oklch(0.1 0.02 268 / 0.6);
+  --tsl-color-selection: oklch(0.74 0.12 272 / 0.3);
+
+  --tsl-color-chart-1: oklch(0.74 0.12 272);
+  --tsl-color-chart-2: oklch(0.72 0.14 48);
+  --tsl-color-chart-3: oklch(0.72 0.1 175);
+  --tsl-color-chart-4: oklch(0.82 0.13 85);
+  --tsl-color-chart-5: oklch(0.72 0.13 320);
+
+  --tsl-color-sidebar: oklch(0.19 0.024 268);
+  --tsl-color-sidebar-foreground: oklch(0.95 0.008 75);
+  --tsl-color-sidebar-accent: oklch(0.27 0.03 268);
+  --tsl-color-sidebar-accent-foreground: oklch(0.95 0.008 75);
+  --tsl-color-sidebar-border: oklch(0.28 0.025 268);
+
+  --tsl-shadow-xs: 0 1px 2px oklch(0.05 0.02 268 / 0.3);
+  --tsl-shadow-sm: 0 1px 2px oklch(0.05 0.02 268 / 0.3), 0 1px 3px oklch(0.05 0.02 268 / 0.4);
+  --tsl-shadow-md: 0 2px 4px oklch(0.05 0.02 268 / 0.3), 0 6px 16px oklch(0.05 0.02 268 / 0.45);
+  --tsl-shadow-lg: 0 4px 8px oklch(0.05 0.02 268 / 0.3), 0 16px 40px oklch(0.05 0.02 268 / 0.55);
+}
+
+/* System preference fallback when no data-theme is set.
+   Must mirror [data-theme='dark'] exactly; enforced by test/tokens.spec.ts. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --tsl-color-background: oklch(0.17 0.022 268);
+    --tsl-color-foreground: oklch(0.95 0.008 75);
+
+    --tsl-color-card: oklch(0.205 0.024 268);
+    --tsl-color-card-foreground: oklch(0.95 0.008 75);
+    --tsl-color-popover: oklch(0.22 0.026 268);
+    --tsl-color-popover-foreground: oklch(0.95 0.008 75);
+
+    --tsl-color-muted: oklch(0.25 0.025 268);
+    --tsl-color-muted-foreground: oklch(0.73 0.02 265);
+
+    --tsl-color-primary: oklch(0.74 0.12 272);
+    --tsl-color-primary-foreground: oklch(0.18 0.05 268);
+    --tsl-color-primary-hover: oklch(0.79 0.1 272);
+
+    --tsl-color-secondary: oklch(0.27 0.03 268);
+    --tsl-color-secondary-foreground: oklch(0.95 0.008 75);
+    --tsl-color-secondary-hover: oklch(0.31 0.032 268);
+
+    --tsl-color-accent: oklch(0.28 0.03 268);
+    --tsl-color-accent-foreground: oklch(0.95 0.008 75);
+
+    --tsl-color-brand: oklch(0.72 0.14 48);
+    --tsl-color-brand-foreground: oklch(0.18 0.04 40);
+
+    --tsl-color-destructive: oklch(0.68 0.17 25);
+    --tsl-color-destructive-foreground: oklch(0.18 0.04 25);
+    --tsl-color-destructive-hover: oklch(0.73 0.15 25);
+    --tsl-color-success: oklch(0.72 0.14 155);
+    --tsl-color-success-foreground: oklch(0.18 0.04 155);
+    --tsl-color-warning: oklch(0.82 0.14 80);
+    --tsl-color-warning-foreground: oklch(0.22 0.05 60);
+    --tsl-color-info: oklch(0.72 0.11 240);
+    --tsl-color-info-foreground: oklch(0.18 0.04 240);
+
+    --tsl-color-border: oklch(0.3 0.025 268);
+    --tsl-color-input: oklch(0.53 0.03 268);
+    --tsl-color-ring: oklch(0.74 0.12 272);
+    --tsl-color-overlay: oklch(0.1 0.02 268 / 0.6);
+    --tsl-color-selection: oklch(0.74 0.12 272 / 0.3);
+
+    --tsl-color-chart-1: oklch(0.74 0.12 272);
+    --tsl-color-chart-2: oklch(0.72 0.14 48);
+    --tsl-color-chart-3: oklch(0.72 0.1 175);
+    --tsl-color-chart-4: oklch(0.82 0.13 85);
+    --tsl-color-chart-5: oklch(0.72 0.13 320);
+
+    --tsl-color-sidebar: oklch(0.19 0.024 268);
+    --tsl-color-sidebar-foreground: oklch(0.95 0.008 75);
+    --tsl-color-sidebar-accent: oklch(0.27 0.03 268);
+    --tsl-color-sidebar-accent-foreground: oklch(0.95 0.008 75);
+    --tsl-color-sidebar-border: oklch(0.28 0.025 268);
+
+    --tsl-shadow-xs: 0 1px 2px oklch(0.05 0.02 268 / 0.3);
+    --tsl-shadow-sm: 0 1px 2px oklch(0.05 0.02 268 / 0.3), 0 1px 3px oklch(0.05 0.02 268 / 0.4);
+    --tsl-shadow-md: 0 2px 4px oklch(0.05 0.02 268 / 0.3), 0 6px 16px oklch(0.05 0.02 268 / 0.45);
+    --tsl-shadow-lg: 0 4px 8px oklch(0.05 0.02 268 / 0.3), 0 16px 40px oklch(0.05 0.02 268 / 0.55);
+  }
+}

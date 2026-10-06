@@ -1,0 +1,68 @@
+/*
+ * Base element styles for Tassili. Lives in Tailwind's base layer so any
+ * utility class wins over it.
+ */
+@layer base {
+  html {
+    background-color: var(--tsl-color-background);
+    color: var(--tsl-color-foreground);
+    font-family: var(--tsl-font-sans);
+    font-size: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--tsl-color-border);
+  }
+
+  h1,
+  h2 {
+    font-family: var(--tsl-font-display);
+    letter-spacing: var(--tsl-tracking-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--tsl-font-mono);
+  }
+
+  ::selection {
+    background-color: var(--tsl-color-selection);
+  }
+
+  :focus-visible {
+    outline: var(--tsl-focus-ring-width) solid var(--tsl-color-ring);
+    outline-offset: var(--tsl-focus-ring-offset);
+  }
+
+  /* Angular CDK overlays (dialogs, menus, popovers) sit on the token z-scale. */
+  .cdk-overlay-container,
+  .cdk-global-overlay-wrapper {
+    z-index: var(--tsl-z-overlay);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
