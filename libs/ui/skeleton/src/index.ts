@@ -1,0 +1,1 @@
+export { TslSkeleton } from './skeleton';
