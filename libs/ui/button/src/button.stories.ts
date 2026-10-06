@@ -1,4 +1,11 @@
+import {
+  LucideArrowRight,
+  LucideChevronLeft,
+  LucideChevronRight,
+  LucidePlus,
+} from '@lucide/angular';
 import { argsToTemplate, moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
+import { TslIcon } from '@tassili/ui/icon';
 import { TslButton } from './button';
 
 interface ButtonArgs {
@@ -11,7 +18,7 @@ interface ButtonArgs {
 const meta: Meta<ButtonArgs> = {
   title: 'Primitives/Button',
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [TslButton] })],
+  decorators: [moduleMetadata({ imports: [TslButton, TslIcon] })],
   parameters: {
     docs: {
       description: {
@@ -79,13 +86,26 @@ export const Sizes: Story = {
   }),
 };
 
-export const IconOnly: Story = {
+export const WithIcon: Story = {
   render: () => ({
+    props: { plus: LucidePlus, arrow: LucideArrowRight },
     template: `
       <div class="flex flex-wrap items-center gap-3">
-        <button tslButton variant="outline" size="icon-sm" aria-label="Previous">‹</button>
-        <button tslButton variant="outline" size="icon" aria-label="Next">›</button>
-        <button tslButton size="icon-lg" aria-label="Add">+</button>
+        <button tslButton><tsl-icon [icon]="plus" />New project</button>
+        <button tslButton variant="outline">Continue<tsl-icon [icon]="arrow" mirrorInRtl /></button>
+      </div>
+    `,
+  }),
+};
+
+export const IconOnly: Story = {
+  render: () => ({
+    props: { prev: LucideChevronLeft, next: LucideChevronRight, plus: LucidePlus },
+    template: `
+      <div class="flex flex-wrap items-center gap-3">
+        <button tslButton variant="outline" size="icon-sm" aria-label="Previous page"><tsl-icon [icon]="prev" mirrorInRtl /></button>
+        <button tslButton variant="outline" size="icon" aria-label="Next page"><tsl-icon [icon]="next" mirrorInRtl /></button>
+        <button tslButton size="icon-lg" aria-label="Add item"><tsl-icon [icon]="plus" /></button>
       </div>
     `,
   }),
