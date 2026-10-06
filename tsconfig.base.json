@@ -22,10 +22,13 @@
     "paths": {
       "@tassili/ui": ["./libs/ui/src/index.ts"],
       "@tassili/ui/button": ["./libs/ui/button/src/index.ts"],
+      "@tassili/ui/checkbox": ["./libs/ui/checkbox/src/index.ts"],
       "@tassili/ui/core": ["./libs/ui/core/src/index.ts"],
       "@tassili/ui/icon": ["./libs/ui/icon/src/index.ts"],
       "@tassili/ui/input": ["./libs/ui/input/src/index.ts"],
       "@tassili/ui/label": ["./libs/ui/label/src/index.ts"],
+      "@tassili/ui/radio-group": ["./libs/ui/radio-group/src/index.ts"],
+      "@tassili/ui/switch": ["./libs/ui/switch/src/index.ts"],
       "@tassili/ui/textarea": ["./libs/ui/textarea/src/index.ts"],
       "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"]
     }
