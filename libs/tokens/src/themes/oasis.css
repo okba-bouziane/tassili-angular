@@ -8,7 +8,7 @@
  * To make a dark-based theme, start from a copy of the [data-theme='dark'] block
  * and set `color-scheme: dark`.
  */
-[data-theme='oasis'] {
+[data-theme='oasis']:not([data-sonner-toaster]) {
   color-scheme: light;
 
   --tsl-color-primary: oklch(0.45 0.08 175);

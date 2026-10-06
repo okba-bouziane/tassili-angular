@@ -4,6 +4,9 @@
  * Every visual decision in @tassili/ui resolves to one of these variables.
  * Themes override variables only; components never branch on the theme.
  *
+ * Theme selectors exclude [data-sonner-toaster]: the toast library writes its own
+ * data-theme attribute, which must not switch Tassili tokens inside toasts.
+ *
  * Theme selection:
  *   <html data-theme="light">  explicit light
  *   <html data-theme="dark">   explicit dark ("desert night")
@@ -127,7 +130,7 @@
  * Light theme ("sandstone"): default
  * ------------------------------------------------------------------------- */
 :root,
-[data-theme='light'] {
+[data-theme='light']:not([data-sonner-toaster]) {
   color-scheme: light;
 
   --tsl-color-background: oklch(0.985 0.004 70);
@@ -201,7 +204,7 @@
  * Dark theme ("desert night")
  * Shared by the explicit attribute and the system preference fallback.
  * ------------------------------------------------------------------------- */
-[data-theme='dark'] {
+[data-theme='dark']:not([data-sonner-toaster]) {
   color-scheme: dark;
 
   --tsl-color-background: oklch(0.17 0.022 268);

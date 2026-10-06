@@ -3,12 +3,18 @@ import { customProperties, type Declarations, readSource, ruleBody } from './css
 import { contrastRatio, isInSrgbGamut, type Oklch, parseOklch } from './oklch';
 
 const tokensCss = readSource('tokens.css');
-const light = customProperties(ruleBody(tokensCss, ":root,\n[data-theme='light']"));
-const dark = customProperties(ruleBody(tokensCss, "[data-theme='dark']"));
+const light = customProperties(
+  ruleBody(tokensCss, ":root,\n[data-theme='light']:not([data-sonner-toaster])"),
+);
+const dark = customProperties(
+  ruleBody(tokensCss, "[data-theme='dark']:not([data-sonner-toaster])"),
+);
 const systemDark = customProperties(ruleBody(tokensCss, ':root:not([data-theme])'));
 const oasis = {
   ...light,
-  ...customProperties(ruleBody(readSource('themes/oasis.css'), "[data-theme='oasis']")),
+  ...customProperties(
+    ruleBody(readSource('themes/oasis.css'), "[data-theme='oasis']:not([data-sonner-toaster])"),
+  ),
 };
 
 const themes: Record<string, Declarations> = { light, dark, oasis };

@@ -7,7 +7,10 @@
  */
 
 @custom-variant dark {
-  &:where([data-theme='dark'], [data-theme='dark'] *) {
+  &:where(
+    [data-theme='dark']:not([data-sonner-toaster]),
+    [data-theme='dark']:not([data-sonner-toaster]) *
+  ) {
     @slot;
   }
   @media (prefers-color-scheme: dark) {
