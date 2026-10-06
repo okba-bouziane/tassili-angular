@@ -127,12 +127,8 @@
   --default-font-family: var(--tsl-font-sans);
   --default-mono-font-family: var(--tsl-font-mono);
 
-  --container-sm: var(--tsl-container-sm);
-  --container-md: var(--tsl-container-md);
-  --container-lg: var(--tsl-container-lg);
-  --container-xl: var(--tsl-container-xl);
-  --container-2xl: var(--tsl-container-2xl);
-
+  /* Tailwind's --container-* scale (max-w-sm, max-w-lg…) is kept as is; page widths
+     are available as max-w-(--tsl-container-lg) and through the Container component. */
   --breakpoint-xs: 22.5rem;
 }
 
