@@ -21,6 +21,7 @@
     "isolatedModules": true,
     "paths": {
       "@tassili/ui": ["./libs/ui/src/index.ts"],
+      "@tassili/ui/button": ["./libs/ui/button/src/index.ts"],
       "@tassili/ui/core": ["./libs/ui/core/src/index.ts"],
       "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"]
     }

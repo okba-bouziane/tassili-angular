@@ -21,12 +21,15 @@
     }
   },
   "peerDependencies": {
+    "@angular/cdk": "^22.2.0",
     "@angular/common": "^22.2.0",
     "@angular/core": "^22.2.0",
     "@tassili/tokens": "^0.0.0",
     "tailwindcss": "^4.3.0"
   },
   "dependencies": {
+    "@spartan-ng/brain": "^1.6.1",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.7.0",
     "tslib": "^2.8.1",

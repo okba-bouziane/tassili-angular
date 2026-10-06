@@ -252,6 +252,12 @@ importers:
       '@angular/core':
         specifier: ^22.2.0
         version: 22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2)
+      '@spartan-ng/brain':
+        specifier: ^1.6.1
+        version: 1.6.1(3c6e43f533fc108badcfdf01a79b18d4)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1

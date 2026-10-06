@@ -69,6 +69,8 @@ export default [
       '@angular-eslint/no-host-metadata-property': 'off',
       '@angular-eslint/use-lifecycle-interface': 'error',
       '@angular-eslint/consistent-component-styles': 'error',
+      // `class` is aliased on purpose: components accept consumer classes and merge them with cn().
+      '@angular-eslint/no-input-rename': ['error', { allowedNames: ['class'] }],
     },
   },
   ...angular.configs.templateAccessibility.map((config) => ({

@@ -18,7 +18,14 @@ export default [
             '{projectRoot}/**/testing/**',
           ],
           // Consumed from styles.css / emitted code, not from TypeScript imports.
-          ignoredDependencies: ['@tassili/tokens', 'tailwindcss', 'tw-animate-css', 'tslib'],
+          // @angular/cdk is a required peer of @spartan-ng/brain.
+          ignoredDependencies: [
+            '@tassili/tokens',
+            'tailwindcss',
+            'tw-animate-css',
+            'tslib',
+            '@angular/cdk',
+          ],
         },
       ],
     },
