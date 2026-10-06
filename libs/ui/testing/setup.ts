@@ -42,3 +42,10 @@ if (typeof window.matchMedia !== 'function') {
       }) as MediaQueryList,
   });
 }
+
+// Pointer capture (used by swipe-to-dismiss in toasts).
+if (!Element.prototype.setPointerCapture) {
+  Element.prototype.setPointerCapture = () => undefined;
+  Element.prototype.releasePointerCapture = () => undefined;
+  Element.prototype.hasPointerCapture = () => false;
+}
