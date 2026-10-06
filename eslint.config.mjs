@@ -77,4 +77,22 @@ export default [
     ...config,
     files: ['**/*.html'],
   })),
+  {
+    files: ['**/*.html'],
+    rules: {
+      // Brain and Tassili form controls render a native control inside, so wrapping labels are valid.
+      '@angular-eslint/template/label-has-associated-control': [
+        'error',
+        {
+          controlComponents: [
+            'brn-radio',
+            'brn-checkbox',
+            'brn-switch',
+            'tsl-checkbox',
+            'tsl-switch',
+          ],
+        },
+      ],
+    },
+  },
 ];
