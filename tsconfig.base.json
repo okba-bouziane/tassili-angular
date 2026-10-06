@@ -43,6 +43,7 @@
       "@tassili/ui/slider": ["./libs/ui/slider/src/index.ts"],
       "@tassili/ui/spinner": ["./libs/ui/spinner/src/index.ts"],
       "@tassili/ui/switch": ["./libs/ui/switch/src/index.ts"],
+      "@tassili/ui/tabs": ["./libs/ui/tabs/src/index.ts"],
       "@tassili/ui/textarea": ["./libs/ui/textarea/src/index.ts"],
       "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"],
       "@tassili/ui/toast": ["./libs/ui/toast/src/index.ts"],
