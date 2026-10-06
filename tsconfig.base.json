@@ -27,6 +27,7 @@
       "@tassili/ui/checkbox": ["./libs/ui/checkbox/src/index.ts"],
       "@tassili/ui/combobox": ["./libs/ui/combobox/src/index.ts"],
       "@tassili/ui/core": ["./libs/ui/core/src/index.ts"],
+      "@tassili/ui/dialog": ["./libs/ui/dialog/src/index.ts"],
       "@tassili/ui/icon": ["./libs/ui/icon/src/index.ts"],
       "@tassili/ui/input": ["./libs/ui/input/src/index.ts"],
       "@tassili/ui/label": ["./libs/ui/label/src/index.ts"],
