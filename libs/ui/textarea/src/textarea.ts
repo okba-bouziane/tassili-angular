@@ -4,15 +4,18 @@ import { cn, injectShownInvalid, type ClassValue } from '@tassili/ui/core';
 import { fieldControlBase } from '@tassili/ui/input';
 import { cva } from 'class-variance-authority';
 
-export const textareaVariants = cva([...fieldControlBase, 'flex min-h-20 px-3 py-2 text-sm'], {
-  variants: {
-    autoResize: {
-      true: 'field-sizing-content resize-none',
-      false: 'resize-y',
+export const textareaVariants = cva(
+  [...fieldControlBase, 'flex min-h-20 px-3 py-2 text-sm read-only:bg-muted'],
+  {
+    variants: {
+      autoResize: {
+        true: 'field-sizing-content resize-none',
+        false: 'resize-y',
+      },
     },
+    defaultVariants: { autoResize: false },
   },
-  defaultVariants: { autoResize: false },
-});
+);
 
 /**
  * Styles a native `<textarea>` and connects it to Tassili form fields.

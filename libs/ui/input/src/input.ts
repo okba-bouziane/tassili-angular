@@ -10,14 +10,13 @@ export const fieldControlBase = [
   'placeholder:text-muted-foreground',
   'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/25 focus-visible:outline-none',
   'disabled:cursor-not-allowed disabled:opacity-50',
-  'read-only:bg-muted',
   'data-[shown-invalid=true]:border-destructive data-[shown-invalid=true]:focus-visible:ring-destructive/25',
 ];
 
 export const inputVariants = cva(
   [
     ...fieldControlBase,
-    'flex px-3',
+    'flex px-3 read-only:bg-muted',
     'file:me-3 file:inline-flex file:h-full file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground',
   ],
   {

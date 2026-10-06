@@ -28,6 +28,7 @@
       "@tassili/ui/input": ["./libs/ui/input/src/index.ts"],
       "@tassili/ui/label": ["./libs/ui/label/src/index.ts"],
       "@tassili/ui/radio-group": ["./libs/ui/radio-group/src/index.ts"],
+      "@tassili/ui/select": ["./libs/ui/select/src/index.ts"],
       "@tassili/ui/switch": ["./libs/ui/switch/src/index.ts"],
       "@tassili/ui/textarea": ["./libs/ui/textarea/src/index.ts"],
       "@tassili/ui/theme": ["./libs/ui/theme/src/index.ts"]

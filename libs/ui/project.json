@@ -27,7 +27,8 @@
         "watch": false,
         "include": ["**/*.spec.ts"],
         "tsConfig": "libs/ui/tsconfig.spec.json",
-        "exclude": ["node_modules/**"]
+        "exclude": ["node_modules/**"],
+        "setupFiles": ["libs/ui/testing/setup.ts"]
       }
     },
     "lint": {
