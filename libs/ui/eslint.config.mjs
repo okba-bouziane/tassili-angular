@@ -18,13 +18,14 @@ export default [
             '{projectRoot}/**/testing/**',
           ],
           // Consumed from styles.css / emitted code, not from TypeScript imports.
-          // @angular/cdk is a required peer of @spartan-ng/brain.
+          // @angular/cdk and @angular/forms are required peers of @spartan-ng/brain.
           ignoredDependencies: [
             '@tassili/tokens',
             'tailwindcss',
             'tw-animate-css',
             'tslib',
             '@angular/cdk',
+            '@angular/forms',
           ],
         },
       ],
